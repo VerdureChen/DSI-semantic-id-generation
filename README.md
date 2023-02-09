@@ -31,7 +31,7 @@ with open('semantic_id_map.pkl', 'rb') as outf:
 ```
 
 We train DSI and DSI-QG based on MS MARCO 100k data extracted from MS MARCO Passage Corpus following
-the original data and implementation of [DSI-QG](https://github.com/ArvinZhuang/DSI-QG). And the results are as follows:
+the original data and implementation of [DSI-QG](https://github.com/ArvinZhuang/DSI-QG). And the results are as follows (num_cluster=10, cluster_size=100, using 768-dim TCT-ColBERT embeddings):
 
 <table>
     <tr>
