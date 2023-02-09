@@ -3,4 +3,6 @@ Semantically Structured Identifiers are commonly used in generative IR models re
 This repository provide an implementation of generating semantic ids with embeddings give by Language Models (e.g. BERT).
 
 The code is written based on the description in the original paper:
+<div align=center>
 <img src=./semantic.png width=50% />
+</div>
