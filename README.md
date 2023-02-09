@@ -16,3 +16,52 @@ Four parameters are needed to run this script:
     <li><i>num_cluster </i>: The cluster number of each step when performing K-Means. The default value is 10. </li> 
     <li><i>cluster_size </i>: The max number of docs in final cluster. The default value is 100. </li> 
  </ul>
+
+Run the command to generate semantic id file:
+```commandline
+python get_semantic_id.py --embedding_path example_embeddings.jsonl --output_dir ./ --num_cluster 15 --cluster_size 100
+```
+
+This will produce a *semantic_id_map.pkl* file, which contains the id map dict from the original id to new semantic ids. 
+You can use it like:
+```python
+with open('semantic_id_map.pkl', 'rb') as outf:
+    id_dict = pickle.load(outf)
+    new_id = id_dict[old_id]
+```
+
+We train DSI and DSI-QG based on MS MARCO 100k data extracted from MS MARCO Passage Corpus following
+the original data and implementation of [DSI-QG](https://github.com/ArvinZhuang/DSI-QG). And the results are as follows:
+
+<table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>Hits@1</td>
+        <td>Hits@10</td>
+    </tr>
+    <tr>
+        <td>DSI</td>
+        <td>Naively ID</td>
+        <td>0.0292</td>
+        <td>0.0682</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Semantic ID</td>
+        <td>0.0957</td>
+        <td>0.2597</td>
+    </tr>
+    <tr>
+        <td>DSI-QG</td>
+        <td>Naively ID</td>
+        <td>0.6085</td>
+        <td>0.8026</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Semantic ID</td>
+        <td>0.6103</td>
+        <td>0.8109</td>
+    </tr>
+</table>
