@@ -7,7 +7,7 @@ The code is written based on the description in the [original paper](https://arx
 <img src=./semantic.png width=50% />
 </div>
 
-First, install the following package:
+First, install the following packages:
 ```commandline
 pip install sklearn
 pip install datasets==2.6.1
